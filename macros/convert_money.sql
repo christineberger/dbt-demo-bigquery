@@ -1,5 +1,5 @@
 {% macro money(col) -%}
-::decimal(16,4)
+cast({{ col }} as float64)
 {%- endmacro %}
 
 

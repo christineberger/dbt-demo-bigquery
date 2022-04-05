@@ -1,0 +1,22 @@
+version: 2
+
+
+sources:
+  - name: tpch
+    description: >
+      This uses Snowflake's [TPCH dataset](https://docs.snowflake.com/en/user-guide/sample-data-tpch.html) to create a sample 
+      BigQuery project.
+    schema: raw
+    tables:
+      - name: orders
+        description: main order tracking table
+        freshness: 
+          warn_after: {count: 6, period: hour}
+          # error_after: {count: 12, period: hour}
+      - name: customer
+      - name: lineitem
+      - name: nation
+      - name: part
+      - name: partsupply
+      - name: region
+      - name: supplier
