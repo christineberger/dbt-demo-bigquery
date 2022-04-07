@@ -1,0 +1,45 @@
+
+
+  create or replace view `sales-demo-project-314714`.`dbt_cberger`.`stg_tpch_line_items`
+  OPTIONS()
+  as with source as (
+
+    select * from `sales-demo-project-314714`.`raw`.`lineitem`
+
+),
+
+renamed as (
+
+    select
+    
+        to_hex(md5(cast(coalesce(cast(l_orderkey as 
+    string
+), '') || '-' || coalesce(cast(l_linenumber as 
+    string
+), '') as 
+    string
+)))
+                as order_item_key,
+        l_orderkey as order_key,
+        l_partkey as part_key,
+        l_suppkey as supplier_key,
+        l_linenumber as line_number,
+        l_quantity as quantity,
+        l_extendedprice as extended_price,
+        l_discount as discount_percentage,
+        l_tax as tax_rate,
+        l_returnflag as return_flag,
+        l_linestatus as status_code,
+        l_shipdate as ship_date,
+        l_commitdate as commit_date,
+        l_receiptdate as receipt_date,
+        l_shipinstruct as ship_instructions,
+        l_shipmode as ship_mode,
+        l_comment as comment
+
+    from source
+
+)
+
+select * from renamed;
+
