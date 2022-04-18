@@ -18,7 +18,7 @@ final as (
         type,
         size,
         container,
-        retail_price
+        retail_price as retailprice
     from
         part
 )
