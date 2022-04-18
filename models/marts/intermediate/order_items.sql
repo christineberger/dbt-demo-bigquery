@@ -31,7 +31,7 @@ calcs as (
         line_item.ship_date,
         line_item.commit_date,
         line_item.receipt_date,
-        line_item.ship_mode,
+        line_item.ship_mode as shipmode,
         line_item.extended_price,
         line_item.quantity,
         
