@@ -36,8 +36,8 @@ vars:
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 models:
-  
   tpch:
+    +store_failures: true
     staging:
       +materialized: view
 
